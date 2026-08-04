@@ -257,7 +257,8 @@ body {
 }
 
 .hero-content {
-  text-align: left;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .hero-visual {
@@ -286,14 +287,14 @@ body {
   font-size: 1.2rem;
   color: var(--text-muted);
   max-width: 620px;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem auto;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 
@@ -687,8 +688,58 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  /* Mobile Hero: Globe behind text at 25% opacity */
+  .hero-grid {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-lottie {
+    max-width: 380px;
+    min-height: auto;
+  }
+
   .hero-title {
     font-size: 2.25rem;
+  }
+
+  /* Objectives: Stack all 4 cards vertically on top of one another */
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Center all section headers on mobile */
+  .section-header,
+  .mission-section .section-header,
+  .what-we-do-section .section-header,
+  .objectives-section .section-header,
+  .who-we-are-section .section-header,
+  .contact-section .section-header {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .mission-card {
@@ -704,14 +755,6 @@ body {
 
   .stats-grid {
     grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .nav-links a {
-    font-size: 0.75rem;
   }
 }
 
